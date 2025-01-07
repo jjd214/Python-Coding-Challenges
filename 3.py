@@ -13,4 +13,4 @@ if unit == "C":
     T = celsius_to_fahrenheit(T)
 
 for V in range(5, 65, 5):
-    print(f"At temperature {T:.1f}F and Wind speed {V}mph, the wind chill is {calculate_wind_chill(T,V):.2f}F")
+    print(f"At temperature {T:.1f}F, and wind speed {V} mph, the wind chill is : {calculate_wind_chill(T,V):.2f}F")
