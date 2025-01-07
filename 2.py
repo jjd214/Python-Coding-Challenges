@@ -1,12 +1,33 @@
 import random
 
-while input("Play? (yes/no): ").lower() == "yes":
-    magic_number = random.randint(1, 100)
-    guess_count = 0
+def main():
 
-    while (guess := int(input("Your guess: "))) != magic_number:
-        print("Higher" if guess < magic_number else "Lower")
-        guess_count += 1
+    play = True
 
-    print(f"You guessed it in {guess_count + 1} tries!")
-print("Goodbye!")
+    while(play):
+
+        magic_number = random.randint(1,100)
+        temp_num = -1
+        count = 0
+
+        while magic_number != temp_num:
+            guess = int(input("What is your guess? "))
+            count+=1
+            if guess == magic_number:
+                print("You guessed it!")
+                print(f"It took you {count} guesses")
+                break
+
+            elif guess > magic_number:
+                print("Lower")
+
+            elif guess < magic_number:
+                print("Higher")
+
+        again = input("Would you like to play again (yes/no)? ").lower()
+
+        if again == 'no':
+            print("Thank you for playing. Goodbye.")
+            play = False
+
+main()
