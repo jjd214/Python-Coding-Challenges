@@ -19,17 +19,10 @@ def main():
     print(f"Basal metabolic rate (kcal/day): {bmr:.0f}")
 
 
-def compute_age(birth):
-    birthday = datetime.strptime(birth, "%Y-%m-%d")
+def compute_age(birthdate):
+    birth = datetime.strptime(birthdate, "%Y-%m-%d")
     today = datetime.now()
-
-    years = today.year - birthday.year
-
-    if birthday.month > today.month or \
-        (birthday.month == today.month and birthday.day > today.day):
-        years -= 1
-
-    return years
+    return today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
 
 
 def kg_from_lb(lb):
