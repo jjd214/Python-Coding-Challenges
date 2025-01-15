@@ -8,5 +8,6 @@ def main():
     def compute_age(birthdate):
         birth = datetime.strptime(birthdate, "%Y-%m-%d")
         today = datetime.now()
-        return 
+        return today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
+
 main()
